@@ -1,82 +1,40 @@
-# Lightweight React Template for KAVIA
+# Tic Tac Toe - Modern React Edition
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A simple yet modern and fully responsive Tic Tac Toe game in React. Play head-to-head on desktop or mobile with classic rules, move history, instant restart, and vibrant color palette.
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- **2-Player mode**: Human vs Human, alternate turns
+- **Game board**: 3x3 grid, immediate input feedback
+- **Win/Draw Detection**: Announce winner and highlight the winning line, or draw status
+- **Move History**: Browse play history, jump to any move
+- **Restart Game**: One-click reset for new game
+- **Responsive Design**: Centered, resizes for all devices
+- **Modern Styling**: Light theme with:
+  - *Primary* (X): ![#4CAF50](https://placehold.co/15x15/4CAF50/4CAF50.png) `#4CAF50`
+  - *Secondary* (UI Accents): ![#2196F3](https://placehold.co/15x15/2196F3/2196F3.png) `#2196F3`
+  - *Accent* (O/highlight): ![#FFC107](https://placehold.co/15x15/FFC107/FFC107.png) `#FFC107`
 
 ## Getting Started
 
-In the project directory, you can run:
+In the `tic_tac_toe_frontend` project folder, run:
 
-### `npm start`
+```bash
+npm install
+npm start
+```
+Open [http://localhost:3000](http://localhost:3000) to play.
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project Structure
 
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `src/App.js`: Main game logic and UI
+- `src/App.css`: All app and board styling, including theme variables
+- `src/index.js`: App entrypoint
 
 ## Customization
 
-### Colors
+You can modify color variables in `App.css` for primary, secondary, and accent hues.
 
-The main brand colors are defined as CSS variables in `src/App.css`:
+## License
 
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT](LICENSE)
