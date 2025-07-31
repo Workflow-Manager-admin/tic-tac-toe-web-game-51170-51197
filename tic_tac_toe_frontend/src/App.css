@@ -1,0 +1,373 @@
+/* CSS Variables for Tic Tac Toe Theme (Light/Modern) */
+:root {
+  --color-primary: #4CAF50;   /* Green (winner X, CTAs) */
+  --color-secondary: #2196F3; /* Blue (draw, accent for links/history, etc) */
+  --color-accent: #FFC107;    /* Yellow (winner O, board highlights) */
+  --bg-main: #fff;
+  --bg-secondary: #f7fafc;
+  --text-main: #1b1b1b;
+  --text-secondary: #555;
+  --border-main: #dbe5ee;
+  --shadow-main: 0 3px 18px rgba(44, 62, 80, 0.06);
+}
+
+[data-theme="dark"] {
+  /* Optional Dark mode, fallback to light palette in this version */
+  --color-primary: #81C784;
+  --color-secondary: #90CAF9;
+  --color-accent: #FFD54F;
+  --bg-main: #2A2A36;
+  --bg-secondary: #242430;
+  --text-main: #f5f5f6;
+  --text-secondary: #d0d0db;
+  --border-main: #3b445a;
+  --shadow-main: 0 3px 18px rgba(44, 62, 80, 0.12);
+}
+
+/* Main Application Container */
+.ttt-root {
+  min-height: 100vh;
+  background: var(--bg-main);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'Inter', "Segoe UI", Arial, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Title/Heading */
+.game-title {
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* Centered Game UI */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background: var(--bg-secondary);
+  border-radius: 18px;
+  box-shadow: var(--shadow-main);
+  padding: 2.2rem 2.2rem 1.6rem 2.2rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  min-width: 330px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.board-and-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Game Board */
+.board-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1.1rem;
+}
+.board-row {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+}
+
+/* Board Square */
+.square {
+  background-color: #fff;
+  border: 2px solid var(--border-main);
+  width: 70px;
+  height: 70px;
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: var(--color-secondary);
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border-radius: 11px;
+  box-shadow: 0 1px 7px rgba(33, 150, 243, 0.04);
+  transition: background 0.13s, border 0.13s;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+.square:active,
+.square:focus {
+  box-shadow: 0 0 0 3px rgba(33,150,243,0.18);
+  border-color: var(--color-secondary);
+}
+.square.win-square {
+  /* Highlight for winning combo */
+  background-color: var(--color-accent);
+  color: #fff !important;
+  border-color: var(--color-accent);
+  transition: background 0.13s, border 0.13s;
+}
+.square[disabled],
+.square:disabled {
+  background: #ededed;
+  cursor: not-allowed;
+  color: var(--text-secondary);
+  opacity: 0.68;
+  box-shadow: none;
+}
+
+/* Status Message */
+.game-status {
+  margin: 0.6rem 0 0.5rem 0;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  min-height: 2.2rem;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: var(--color-primary);
+  word-break: break-word;
+  box-shadow: 0 1px 5px rgba(33, 150, 243, 0.04);
+  border: 1.5px solid var(--border-main);
+  transition: background 0.2s, color 0.2s;
+}
+.game-status.draw {
+  background: #fefdf7;
+  color: var(--color-secondary);
+  border-color: #ffecb3;
+}
+.game-status.won {
+  background: #ebf5e8;
+  color: var(--color-primary);
+  border-color: #c1e9ce;
+}
+.game-status:not(.draw):not(.won) {
+  color: var(--color-primary);
+}
+
+.controls {
+  margin-top: 1.3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.restart-btn {
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.62rem 2.0rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 1px 7px rgba(76, 175, 80, .1);
+  margin-bottom: 0.3rem;
+  cursor: pointer;
+  margin-top: 0.2rem;
+  transition: background 0.17s, color 0.17s, box-shadow 0.24s;
+}
+.restart-btn:hover {
+  background: var(--color-secondary);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(33, 150, 243, 0.14);
+}
+
+.move-history {
+  width: 100%;
+  padding: 0.65rem 0.2rem 0.65rem 0.3rem;
+  background: #fff;
+  border-radius: 9px;
+  border: 1.5px solid var(--border-main);
+  box-shadow: 0 0.5px 2.5px rgba(33, 150, 243, 0.04);
+}
+.move-history[open] summary {
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+.move-history ol {
+  padding-left: 1.1em;
+  margin: 0.3rem 0 0 0;
+}
+.move-history li {
+  margin: 0.09em 0;
+}
+.history-btn {
+  background: none;
+  border: none;
+  color: var(--color-secondary);
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0.19em 0.41em;
+  margin-left: -1.0em;
+  margin-bottom: 1.5px;
+  text-decoration: underline;
+  transition: background 0.15s, color 0.15s;
+}
+.history-btn:hover, .history-btn.active {
+  color: var(--color-primary);
+  background: #e3f4e7;
+  text-decoration: none;
+}
+
+/* Summary arrow reset (cross-browser) */
+.move-history summary::-webkit-details-marker {
+  display: none;
+}
+.move-history summary:after {
+  content: "▶";
+  margin-left: 0.4em;
+  color: var(--color-secondary);
+  font-size: 1em;
+}
+.move-history[open] summary:after {
+  content: "▼";
+  color: var(--color-primary);
+}
+
+.ttt-footer {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.97rem;
+  margin: 0.5rem 0 2.4rem 0;
+  opacity: 0.72;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Responsive Design for Mobile and Tablets */
+@media (max-width: 600px) {
+  .ttt-root {
+    padding: 0;
+  }
+  .game-container {
+    min-width: unset;
+    max-width: 100vw;
+    padding: 1.1rem 0.3rem 1.1rem 0.3rem;
+  }
+  .game-title {
+    font-size: 1.7rem;
+    margin-top: 1.2rem;
+  }
+  .square {
+    width: 54px;
+    height: 54px;
+    font-size: 1.38rem;
+  }
+  .game-status {
+    font-size: 1rem;
+    padding: 0.22rem 0.6rem;
+  }
+  .controls {
+    gap: 0.55rem;
+    margin-top: 0.85rem;
+  }
+  .move-history {
+    font-size: 0.98em;
+    margin-bottom: 0.2rem;
+  }
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #282c34;
+  --text-primary: #ffffff;
+  --text-secondary: #61dafb;
+  --border-color: #404040;
+  --button-bg: #0056b3;
+  --button-text: #ffffff;
+}
+
+.App {
+  text-align: center;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: var(--bg-secondary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.App-link {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  opacity: 0.9;
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
